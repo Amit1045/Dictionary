@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dictionary app</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+
+<body>
+    <form action="/search" method="post">
+        <div class="container">
+            <div>
+                <h1 class="heading">Dictionary</h1>
+                <div class="search-box">
+                    <input type="text" name="userInput" class="userInput" placeholder="Enter a word">
+                    <button class="search">Search</button>
+                </div>
+            </div>
+            <% if (showoutput===true ) { %>
+                <div class="show-output">
+                    <div class="topic">Title: <span><%= title %>
+                        </span>
+                    </div>
+                    <div class="defination">Defination: <span><%= Defination %>
+                        </span></div>
+                    <div class="partofspeech">Part of speech: <span><%= speech %>
+                        </span></div>
+                    <div class="example">Example:<span><%= Do %>
+                        </span></div>
+                    <audio class="audioPlay" controls>
+                        <source src="<%= Sound %>" type="audio/mpeg">
+                    </audio>
+                </div> 
+             <% } else { %>
+                <div class="notFound">
+                    <%= found %>
+                </div>
+                <% } %>
+
+              
+        </div>
+    </form>
+</body>
+
+</html>
