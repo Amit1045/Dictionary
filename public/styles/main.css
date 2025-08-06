@@ -89,7 +89,8 @@ button:hover {
 
 .defination,
 .partofspeech,
-.example,.topic{
+.example,
+.topic {
   font-weight: 600;
 }
 
@@ -97,7 +98,35 @@ span {
   font-weight: 400;
   color: #333;
 }
-.notFound{
+
+.notFound {
   font-size: 30px;
   font-weight: 500;
+}
+
+/* 📱 Phone Responsiveness */
+@media (max-width: 600px) {
+  .container {
+    margin: 110px 10px;
+    padding: 15px;
+  }
+
+  .search-box {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  .notFound {
+    font-size: 22px;
+    text-align: center;
+  }
 }
