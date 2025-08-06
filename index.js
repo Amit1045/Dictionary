@@ -1,8 +1,9 @@
 import express from "express"
 import axios from "axios";
 import bodyParser from "body-parser";
+import dotenv from "dotenv"
 const app = express();
-const url = "https://api.dictionaryapi.dev/api/v2/entries/en/"
+dotenv.config();
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -21,10 +22,12 @@ app.get("/", (req, res) => {
 
 app.post("/search", async (req, res) => {
   const uservalue = req.body["userInput"];
-
+  const Baseurl=process.env.API_URL
+  
   try {
     // Fetch the data from the API
-    const response = await axios.get(url + uservalue);
+    const response = await axios.get(Baseurl + uservalue);
+
     const result = response.data[0]
    
     // Loop through phonetics to find the first valid audio URL
@@ -101,5 +104,5 @@ app.post("/search", async (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log(`server is running on port 3000`);
+  console.log(`server is running on port http://localhost:3000`);
 })
